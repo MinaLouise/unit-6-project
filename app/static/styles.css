@@ -13,7 +13,7 @@ body{
 }
 
 .header{
-    background-color: rgb(185, 185, 185);
+    background-color: rgb(255, 255, 255);
     padding-left: 10px;
     padding-right: 10px;
     z-index: 100;
@@ -23,18 +23,20 @@ body{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.48);
 }
 .header2{
-    background-color: rgb(185, 185, 185);
+    background-color: rgb(255, 255, 255);
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
 }
 .houses{
-    background-color: rgb(204, 200, 200);
+    background-color: rgb(255, 255, 255);
     text-align: center;
     margin-top: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 20px;
+    box-shadow: 0 0 10px rgba(72, 56, 56, 0.892);
 }
