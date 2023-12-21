@@ -1,24 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Account(models.Model):
-    name = models.CharField(max_length = 255)
+    name = models.CharField(max_length = 24)
     username = models.CharField(max_length = 24)
     password = models.CharField(max_length = 24)
     email = models.EmailField()
     phone_number = models.CharField(max_length = 10)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-
-def create_account(name, username, password, email, phone_number):
-    new_account = Account(
-        name = name,
-        username = username,
-        password = password,
-        email = email,
-        phone_number = phone_number
-    )
-    new_account.save()
-    return new_account
 
 
 class Properties(models.Model):
@@ -28,3 +19,17 @@ class Properties(models.Model):
     zip_code = models.IntegerField()
     size = models.IntegerField()
     available = models.BooleanField()
+
+
+
+
+
+
+
+
+# class User(models.Model):
+#     name = models.CharField(max_length = 24)
+#     username = models.CharField(max_length = 24)
+#     password = models.CharField(max_length = 255)
+#     email = models.EmailField()
+#     number = models.CharField(max_length = 10)
