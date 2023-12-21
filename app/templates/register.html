@@ -1,7 +1,7 @@
 {% extends "base_index.html" %}
 {% block content %}
 <!DOCTYPE html>
-<html>
+{% comment %} <html>
     
 <head>
 	<title>Login</title>
@@ -137,6 +137,47 @@
 			form_fields[field].className += ' form-control'
 		}
 	</script>
+</body>
+</html> {% endcomment %}
+
+<html>
+<body>
+	<form class='register_background' method='POST'>
+		{% csrf_token %}
+		<h1 class='register_text'>Sign Up!</h1>
+		<div class='register_input'>
+			<label>
+				<p>Name:</p>
+				{{ form.name }}
+			</label>
+		</div>
+		<div class='register_input'>
+			<label>
+				<p>Username:</p>
+				{{ form.username }}
+			</label>
+		</div>
+		<div class='register_input'>
+			<label>
+				<p>Password:</p>
+				{{ form.password }}
+			</label>
+		</div>
+		<div class='register_input'>
+			<label>
+				<p>Email:</p>
+				{{ form.email }}
+			</label>
+		</div>
+		<div class='register_input'>
+			<label>
+				<p>Number:</p>
+				{{ form.phone_number }}
+			</label>
+		</div>
+		<input type='submit' class='create_acc_btn'></input>
+		<h3 class='register_to_login_btn'>Already have an <a href="{% url 'login' %}">account?</a></h3>
+	</form>
 </body>
 </html>
 
