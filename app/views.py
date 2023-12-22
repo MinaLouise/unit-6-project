@@ -32,9 +32,13 @@ def loginpage(request):
             messages.info(request, 'Username or Password incorrect')
     return render(request, 'login.html')
 
+
+
 def logout_func(request):
     logout(request)
     return redirect('login')
+
+
 
 def homepage(request):
     return render(request, 'home.html')
