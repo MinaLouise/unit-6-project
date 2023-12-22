@@ -13,6 +13,7 @@ class Account(models.Model):
 
 
 class Properties(models.Model):
+    user_props = models.ForeignKey(Account, on_delete=models.CASCADE)
     price = models.IntegerField()
     address = models.TextField()
     city = models.TextField()
@@ -20,16 +21,3 @@ class Properties(models.Model):
     size = models.IntegerField()
     available = models.BooleanField()
 
-
-
-
-
-
-
-
-# class User(models.Model):
-#     name = models.CharField(max_length = 24)
-#     username = models.CharField(max_length = 24)
-#     password = models.CharField(max_length = 255)
-#     email = models.EmailField()
-#     number = models.CharField(max_length = 10)

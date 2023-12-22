@@ -8,8 +8,9 @@
     </header>
     <div>
         <div class='houses'>
-            <p>Hello {{ request.user }}</p>
-            <p>Properties</p>
+            {% if request.user is not AnonymousUser %}
+                <p>Hello {{ request.user }}</p>
+            {% endif %}
         </div>
     </div>
 {% endblock content %}
