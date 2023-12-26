@@ -10,6 +10,16 @@
         <div class='houses'>
                 <p>Hello {{ request.user }}</p>
             <p>Properties</p>
+            {% for property in places %}
+            
+                <p>{{ property.user_props.name }}</p>
+                <p>{{ property.price }}</p>
+                <p>{{ property.address }}</p>
+                <p>{{ property.city }}</p>
+                <p>{{ property.zip_code }}</p>
+                <p>{{ property.size }}</p>
+                <p>{{ property.available }}</p>
+            {% endfor %}
         </div>
     </div>
 {% endblock content %}

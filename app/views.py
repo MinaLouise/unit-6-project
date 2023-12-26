@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import *
+from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -41,4 +42,6 @@ def logout_func(request):
 
 
 def homepage(request):
-    return render(request, 'home.html')
+    places = Properties.objects.all()
+    context = {'places': places}
+    return render(request, 'home.html', context)
