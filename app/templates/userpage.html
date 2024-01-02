@@ -11,7 +11,7 @@
                 <p>Hello {{ request.user }}</p>
             <p>Properties</p>
             {% for property in places %}
-            
+            {% if property.user_props.name == 'admin' %}
                 <p>{{ property.user_props.name }}</p>
                 <!-- <p>{{ property.price }}</p>
                 <p>{{ property.address }}</p>
@@ -19,6 +19,7 @@
                 <p>{{ property.zip_code }}</p>
                 <p>{{ property.size }}</p>
                 <p>{{ property.available }}</p> -->
+            {% endif %}
             {% endfor %}
         </div>
     </div>
