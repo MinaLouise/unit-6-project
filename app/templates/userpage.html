@@ -6,21 +6,12 @@
             <p>search/filter bar</p>
         </header>
     </header>
-    <div>
-        <div class="house">
-                <p>Hello {{ request.user }}</p>
-            <p>Properties</p>
-            {% for property in places %}
-            {% if property.user_props.name == 'admin' %}
-                <p>{{ property.user_props.name }}</p>
-                <!-- <p>{{ property.price }}</p>
-                <p>{{ property.address }}</p>
-                <p>{{ property.city }}</p>
-                <p>{{ property.zip_code }}</p>
-                <p>{{ property.size }}</p>
-                <p>{{ property.available }}</p> -->
-            {% endif %}
-            {% endfor %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ request.name }}</h5>
+                {% comment %} <p class="card-text">{{ account.email }}</p> {% endcomment %}
+            </div>
         </div>
     </div>
 {% endblock content %}
