@@ -46,7 +46,9 @@ def homepage(request):
     context = {'places': places}
     return render(request, 'home.html', context)
 
+
 def userpage(request):
-    places = Properties.objects.all()
-    context = {'places': places}
+    account = Account.objects.all()
+    # places = Properties.objects.all()
+    context = {'account': account}
     return render(request, 'userpage.html', context)
