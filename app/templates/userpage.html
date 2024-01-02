@@ -9,7 +9,9 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
+                {% if account is not None %}
                 <h5 class="card-title">{{ account.name }}</h5>
+                {% endif %}
                 {% comment %} <p class="card-text">{{ account.email }}</p> {% endcomment %}
             </div>
         </div>
