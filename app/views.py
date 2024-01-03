@@ -48,11 +48,12 @@ def homepage(request):
 
 
 def userpage(request):
+    user = request.user
     try:
-        account = Account.objects.all()
-        places = Properties.objects.all()
-        user = User.objects.all()
+        account = Account.objects.get(user = user.id)
+        places = Properties.objects.filter(user_props = account)
     except Account.DoesNotExist:
         account = None
+        places = None
     context = {'account': account, 'places': places, 'user': user}
     return render(request, 'userpage.html', context)
