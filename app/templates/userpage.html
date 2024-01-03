@@ -9,10 +9,16 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
-                {% if account is not None %}
-                <h5 class="card-title">{{ account.name }}</h5>
+                {% if account %}
+                    <div>
+                        <h5 class="card-title">{{ request.user }}</h5>
+                        <p class="card-text">{{ request.number }}</p>
+                        <p class="card-text">{{ request.email }}</p>
+                        <p class="card-text">{{ request. }}</p>
+                    </div>
+                {% else %}
+                    <p>Not Signed In</p>
                 {% endif %}
-                {% comment %} <p class="card-text">{{ account.email }}</p> {% endcomment %}
             </div>
         </div>
     </div>
