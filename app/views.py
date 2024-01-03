@@ -51,7 +51,8 @@ def userpage(request):
     try:
         account = Account.objects.all()
         places = Properties.objects.all()
+        user = User.objects.all()
     except Account.DoesNotExist:
         account = None
-    context = {'account': account, 'places': places}
+    context = {'account': account, 'places': places, 'user': user}
     return render(request, 'userpage.html', context)
