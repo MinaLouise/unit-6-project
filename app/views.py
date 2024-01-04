@@ -4,6 +4,7 @@ from .forms import *
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -46,7 +47,7 @@ def homepage(request):
     context = {'places': places}
     return render(request, 'home.html', context)
 
-
+@login_required(login_url='login')
 def userpage(request):
     user = request.user
     try:
