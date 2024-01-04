@@ -31,5 +31,13 @@
                 {% endif %}
             </div>
         </div>
+        {% for object in places %}
+            <p> {{account.name}} </p>
+            <p> {{object.price}} </p>
+            <p> {{object.size}} </p>
+            <p> {{object.address}} </p>
+            <p> {{object.city}} </p>
+            <p> {{object.zip_code}} </p>
+        {% endfor %}
     </div>
 {% endblock content %}
