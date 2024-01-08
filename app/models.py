@@ -6,8 +6,7 @@ class Account(models.Model):
     name = models.CharField(max_length = 24)
     phone_number = models.CharField(max_length = 10)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # pfp = models.ImageField()
-
+    profile_picture = models.ImageField(null=True, blank=True)
 
 
 class Properties(models.Model):
@@ -18,5 +17,5 @@ class Properties(models.Model):
     zip_code = models.IntegerField()
     size = models.IntegerField()
     available = models.BooleanField()
-    # photo = models.ImageField()
+
 
