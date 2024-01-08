@@ -11,7 +11,6 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def register(request):
     form = CreateUserForm()
-    print(request.method)
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
