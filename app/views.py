@@ -52,9 +52,9 @@ def userpage(request):
     if request.method == 'POST':
         if 'delete_property' in request.POST:
             property_id = request.POST['delete_property']
-            property_to_delete = get_object_or_404(Properties, id=property_id, user_props=request.user)
+            property_to_delete = get_object_or_404(Properties, id=property_id, user_props=request.user.account)
             property_to_delete.delete()
-            return redirect('userpage')
+            return redirect('user')
         else:
             user = request.user
             try:
