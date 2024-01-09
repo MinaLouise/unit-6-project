@@ -1,0 +1,14 @@
+{% extends "base_index.html" %}
+{% block content %}
+    <form method='POST' action=''>
+        {% csrf_token %}
+        <p>{{ form.user_props }}</p>
+        <p>{{ form.price }}</p>
+        <p>{{ form.address }}</p>
+        <p>{{ form.city }}</p>
+        <p>{{ form.zip_code }}</p>
+        <p>{{ form.size }}</p>
+        <p>{{ form.available }}</p>
+        <button type='submit'>submit</button>
+    </form>
+{% endblock content %}

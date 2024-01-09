@@ -13,3 +13,9 @@ class CreateAccount(ModelForm):
     class Meta:
         model = Account
         fields = '__all__'
+
+class AddProperty(ModelForm):
+    class Meta:
+        model = Properties
+        fields = ['user_props', 'price', 'address', 'city', 'zip_code', 'size', 'available']
+        

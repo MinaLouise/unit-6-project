@@ -57,3 +57,22 @@ def userpage(request):
         places = None
     context = {'account': account, 'places': places, 'user': user}
     return render(request, 'userpage.html', context)
+
+@login_required(login_url='login')
+def add_property(request):
+    form = AddProperty(initial={'user_props': request.user})
+    print(request.method)
+    if request.method == 'POST':
+        form = AddProperty(request.POST)
+        form.user_props = request.user
+        form.price = request.POST.get('price')
+        form.address = request.POST.get('address')
+        form.city = request.POST.get('city')
+        form.zip_code = request.POST.get('zip_code')
+        form.size = request.POST.get('size')
+        form.available = request.POST.get('available')
+        form.save()
+        return redirect('home')
+    else:
+        context = {'form': form}
+        return render(request, 'add_property.html', context)
