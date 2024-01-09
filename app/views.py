@@ -5,6 +5,7 @@ from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 
 
 
@@ -48,20 +49,36 @@ def homepage(request):
 
 @login_required(login_url='login')
 def userpage(request):
-    user = request.user
-    try:
-        account = Account.objects.get(user = user.id)
-        places = Properties.objects.filter(user_props = account)
-    except Account.DoesNotExist:
-        account = None
-        places = None
-    context = {'account': account, 'places': places, 'user': user}
-    return render(request, 'userpage.html', context)
+    if request.method == 'POST':
+        if 'delete_property' in request.POST:
+            property_id = request.POST['delete_property']
+            property_to_delete = get_object_or_404(Properties, id=property_id, user_props=request.user)
+            property_to_delete.delete()
+            return redirect('userpage')
+        else:
+            user = request.user
+            try:
+                account = Account.objects.get(user = user.id)
+                places = Properties.objects.filter(user_props = account)
+            except Account.DoesNotExist:
+                account = None
+                places = None
+            context = {'account': account, 'places': places, 'user': user}
+            return render(request, 'userpage.html', context)
+    else:
+        user = request.user
+        try:
+            account = Account.objects.get(user = user.id)
+            places = Properties.objects.filter(user_props = account)
+        except Account.DoesNotExist:
+            account = None
+            places = None
+        context = {'account': account, 'places': places, 'user': user}
+        return render(request, 'userpage.html', context)
 
 @login_required(login_url='login')
 def add_property(request):
     form = AddProperty(initial={'user_props': request.user})
-    print(request.method)
     if request.method == 'POST':
         form = AddProperty(request.POST)
         form.user_props = request.user

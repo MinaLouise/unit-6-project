@@ -16,12 +16,12 @@
                             <img src="{% static "images/fisher.png" %}" alt="">
                         </td>
                         <td>
-                            <div class="userscard">
-                            <h5 class="card-title">{{ account.name}}</h5>
-                            <p class="card-text">{{ account.phone_number }}</p>
-                            <p class="card-text">{{ account.email }}</p>
-                            <p class="card-text">{{ account. }}</p>
-                            </div>
+                                <div class="userscard">
+                                <h5 class="card-title">{{ account.name}}</h5>
+                                <p class="card-text">{{ account.phone_number }}</p>
+                                <p class="card-text">{{ account.email }}</p>
+                                <p class="card-text">{{ account. }}</p>
+                                </div>
                         </td>
                         
                     </table>
@@ -31,6 +31,8 @@
                 {% endif %}
             </div>
         </div>
+        <form method='POST' action=''>
+        {% csrf_token %}
         {% for object in places %}
             <p> {{account.name}} </p>
             <p> {{object.price}} </p>
@@ -38,6 +40,8 @@
             <p> {{object.address}} </p>
             <p> {{object.city}} </p>
             <p> {{object.zip_code}} </p>
+            <button type='submit' name='delete_property' value='{{ object.id }}'>delete</button>
         {% endfor %}
+        </form
     </div>
 {% endblock content %}
